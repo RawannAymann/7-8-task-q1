@@ -1,0 +1,67 @@
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+    int rows, columns;
+    //description 
+   cout << "Enter a 2D matrix to get the transposed matrix\n ============================\n";
+   // loop to get a valid values for rows & columns 
+while (true) {
+        cout << "Enter the number of rows : ";
+        cin >> rows;
+        if (cin.fail() || rows <= 0) {
+ //clear invalid input 
+            cin.clear();
+ // to clear the whole invalid line
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 
+            cout << "Invalid !! Please enter an integer number greater than 0 for rows \n";
+            continue;
+        }
+        cout << "Enter the number of columns : ";
+        cin >> columns;
+        if (cin.fail() || columns <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout <<"Invalid !!please enter an integer number greater than 0 for columns\n";
+            continue; 
+        }
+        break;
+}    
+   int matrix[rows][columns];
+  
+   cout <<"\nEnter the elements of a [" << rows << "][" << columns << "] matrix to get the transposed matrix\n";
+   cout <<"==========================\n";
+   cout <<"starting from [1][1]\n";
+    // nested for loop to get the elements 
+    //for rows 
+    for (int i = 0; i < rows; i++) 
+      //for columns
+      {
+        for (int j = 0; j < columns; j++) 
+        //descriptive msg
+        {
+            cout <<"Enter element [ " << i + 1 << " ][ " << j + 1 << " ] : ";
+            cin >> matrix[i][j];
+        }
+    }
+    //prints the original one
+    cout << "\n *Original Matrix*:\n";
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            cout << matrix[i][j]
+                 <<" ";
+        }
+        cout <<endl;
+    }
+      cout <<"\n===============\n";
+      cout << "*Transposed Matrix*:\n";
+      //switching rows n columns to know the transported matrix 
+    for (int j = 0 ; j < columns; j++) {
+        for (int i = 0; i < rows; i++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }    
+    return 0;
+}
