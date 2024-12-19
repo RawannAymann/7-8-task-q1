@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+// allows the compiler to allocate memory correctly
+const int row=3;
+const int column=3;
+long long matrix[row][column];
+long long sum2=0, product2=1;
+//description 
+cout <<"enter "<< row*column<<" integer numbers to make a ("<<row<<"×"<<column<<") matrix\n";
+//for rows
+for (int i=0; i<row; i++){
+    //the Start point before every inner loop
+    long long sum=0;
+    long long product=1;
+    cout<<"enter elements of row number "<<i+1<<" :\n";
+    //stores array elements &calculates sum & product of every row 
+    for (int j=0; j<column; j++){
+        cin>>matrix[i][j];
+        sum+=matrix[i][j];
+        product*=matrix[i][j];
+        
+        if (cin.fail()) {
+                cout << "Invalid!! Please enter integers only\n";
+                return 1;//stops
+            }
+    }
+    // adds sum to know the total sum 
+    sum2+=sum;
+    product2*=product;
+    //prints row details
+    cout <<"-Row number "<<i+1<<" :\n";
+    cout<<"sum of its elements="<<sum<<"\n";
+    cout<<"product of its elements="<<product<<"\n\n";
+}
+//prints the values of the matrix 
+    cout <<"Matrix:\n";
+    for (int i=0; i<row; i++){
+        for (int j=0; j<column; j++){
+            cout <<matrix[i][j]<<"\t";
+        }
+        cout <<"\n\n";
+}
+    cout <<"sum of matrix elements= "<<sum2;
+    cout <<endl;
+    cout<<"product of matrix elements = "<<product2;
+    return 0;
+}
