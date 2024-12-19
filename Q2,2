@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+const int row=3;
+const int column=3;
+//declare 3x3 long long matrix 
+long long matrix[row][column];
+//description to enter matrix elements 
+cout <<"Enter "<<row*column<<" integer numbers to make ("<<row<<"×"<<column<<") matrix\n";
+//takes input from the user
+for (int i=0; i<row; i++){
+    for (int j=0; j<column; j++){
+        cin>>matrix[i][j];
+        //check if the input is valid "int"
+       if (cin.fail()) {
+                cout << "Invalid!! Please enter integers only\n";
+                return 1;//stops the program when it's invalid 
+            }
+    }
+}
+// print the matrix
+cout<<"-matrix:\n";
+for (int i=0; i<row; i++){
+    for (int j=0; j<column; j++){
+        cout <<matrix[i][j]<<"\t";
+    }
+    cout <<endl;
+}
+// calculate and print the sum of each row
+cout<<"-summation of each row:\n";
+for (int i=0; i<row; i++){
+    long long sum=0;
+    for (int j=0; j<column; j++){
+    //calculates the sum
+        sum+=matrix[i][j];
+    }
+    //output the sum
+    cout << "Row " << i + 1 << ": Sum = " << sum << endl; 
+}
+// calculate and print the product of each row
+cout<<"-product of each row:\n";
+for (int i=0; i<row; i++){
+    long long product=1;
+    for (int j=0; j<column; j++){
+        product*=matrix[i][j];
+    }
+    cout << "Row " << i + 1 << ": Product = " << product << endl;
+}
+    return 0;
+}
